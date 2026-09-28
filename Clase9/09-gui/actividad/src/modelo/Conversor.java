@@ -12,13 +12,12 @@ public class Conversor {
     }
 
     public double aDolares(double pesos){
-        if (pesos<= 0){
+        if (pesos <= 0){
             throw new IllegalArgumentException("Monto invalido");
         }
-        return pesos / PESOS_POR_DOLAR;
+        return (pesos/PESOS_POR_DOLAR);
 
     }
-
 
     public double getPesos(){
         return this.pesos;

@@ -23,8 +23,13 @@ public class ControladorConversor implements ActionListener {
     @Override 
     public void actionPerformed(ActionEvent evento){
         try {
-            double dolares = Double.parseDouble(this.vistaConversor.getBotonConvertir());
-        } catch (Exception e) {
+            double pesos = Double.parseDouble(this.vistaConversor.getTextoPesos());
+            double dolares = this.conversor.aDolares(pesos);
+            this.vistaConversor.mostrarResultado(dolares);
+        } catch (NumberFormatException ex) {
+            this.vistaConversor.mostrarError("Ingrese un numero");
+        } catch (IllegalArgumentException ex) {
+            this.vistaConversor.mostrarError(ex.getMessage());
         }
     }
 

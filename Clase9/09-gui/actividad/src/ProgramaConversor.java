@@ -2,11 +2,11 @@
 // Programa de prueba. No se modifica, salvo comentar y descomentar bloques.
 
 // TODO 4: descomentar los tres import junto con el bloque de la parte 2.
-// import controlador.ControladorConversor;
-// import modelo.Conversor;
-// import vista.VistaConversor;
+import controlador.ControladorConversor;
+import modelo.Conversor;
+import vista.VistaConversor;
 
-public class Programa {
+public class ProgramaConversor {
 
     public static void main(String[] args) {
 
@@ -14,18 +14,17 @@ public class Programa {
         // Cuando esten hechos los TODO 1 a 3, comentar este bloque y
         // descomentar el de la parte 2.
 
-        VentanaConversor ventana = new VentanaConversor();
-        ventana.setVisible(true);
+        //VentanaConversor ventana = new VentanaConversor();
+        //ventana.setVisible(true);
 
         // ----- Parte 2: el conversor repartido en tres clases -----
         // Descomentar el bloque (sacar el /* y el */).
-        /*
+        
         Conversor conversor = new Conversor(1450.0);
         VistaConversor vista = new VistaConversor();
         ControladorConversor controlador = new ControladorConversor(vista, conversor);
         vista.mostrar();
-        */
-
+        
         // ----- Parte 3a: el modelo sin pantalla -----
         // Descomentar este bloque con el de la parte 2 comentado. No abre
         // ninguna ventana.
