@@ -12,10 +12,13 @@
 
 package vista;
 
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class VistaConversor {
@@ -26,59 +29,62 @@ public class VistaConversor {
     private final JButton botonDolares;
     private final JButton botonEuros;
     private final JButton botonReales;
+    private final JButton botonLibras;
 
     public VistaConversor() {
         this.ventana = new JFrame("Conversor de moneda");
         this.ventana.setSize(360, 200);
         this.ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.ventana.setLocationRelativeTo(null);
-        this.ventana.setLayout(null);
-
+        //this.ventana.setLayout(null);
+        
         JLabel etiquetaPesos = new JLabel("Monto en pesos:");
-        this.campoPesos = new JTextField();
+        this.campoPesos = new JTextField(10);
         this.botonDolares = new JButton("A dolares");
         this.botonEuros = new JButton("A euros");
         this.botonReales = new JButton("A reales");
+        this.botonLibras = new JButton("A Libras");
         this.etiquetaResultado = new JLabel("Resultado: ...");
+        
+        JPanel panelPesos = new JPanel();
+        panelPesos.add(etiquetaPesos);
+        panelPesos.add(this.campoPesos);
 
-        etiquetaPesos.setBounds(20, 20, 120, 25);
-        this.campoPesos.setBounds(150, 20, 170, 25);
+        JPanel panelBotones = new JPanel(new FlowLayout());
+        panelBotones.add(this.botonDolares);
+        panelBotones.add(this.botonEuros);
+        panelBotones.add(this.botonReales);
+        panelBotones.add(this.botonLibras);
+        
+        /* etiquetaPesos.setBounds(20, 20, 120, 25);
         this.botonDolares.setBounds(20, 65, 100, 30);
         this.botonEuros.setBounds(125, 65, 100, 30);
         this.botonReales.setBounds(230, 65, 100, 30);
-        this.etiquetaResultado.setBounds(20, 115, 300, 25);
+        this.etiquetaResultado.setBounds(20, 115, 300, 25); */
+        
+        
+        this.ventana.add(panelPesos, BorderLayout.NORTH);
+        this.ventana.add(panelBotones, BorderLayout.CENTER);
+        this.ventana.add(this.etiquetaResultado, BorderLayout.SOUTH);
 
-        this.ventana.add(etiquetaPesos);
-        this.ventana.add(this.campoPesos);
-        this.ventana.add(this.botonDolares);
-        this.ventana.add(this.botonEuros);
-        this.ventana.add(this.botonReales);
-        this.ventana.add(this.etiquetaResultado);
+        this.ventana.pack();
     }
     public void mostrar() {
         this.ventana.setVisible(true);
     }
 
     // Las fuentes de eventos. El controlador las necesita para registrarse.
-    public JButton getBotonDolares() {
-        return this.botonDolares;
-    }
+    public JButton getBotonDolares() {return this.botonDolares;}
 
-    public JButton getBotonEuros() {
-        return this.botonEuros;
-    }
+    public JButton getBotonEuros() {return this.botonEuros;}
 
-    public JButton getBotonReales() {
-        return this.botonReales;
-    }
+    public JButton getBotonReales() {return this.botonReales;}
 
-    public JTextField getCampoPesos() {
-        return this.campoPesos;
-    }
+    public JButton getBotonLibras(){return this.botonLibras;}
 
-    public String getTextoPesos() {
-        return this.campoPesos.getText();
-    }
+    public JTextField getCampoPesos() {return this.campoPesos;}
+
+    public String getTextoPesos() {return this.campoPesos.getText();}
 
     public void mostrarResultado(String texto) {
         this.etiquetaResultado.setText("Resultado: " + texto);

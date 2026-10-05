@@ -9,14 +9,16 @@ public class Conversor {
     private final double pesosPorDolar;
     private final double pesosPorEuro;
     private final double pesosPorReal;
+    private final double pesosPorLibra;
 
-    public Conversor(double pesosPorDolar, double pesosPorEuro, double pesosPorReal) {
+    public Conversor(double pesosPorDolar, double pesosPorEuro, double pesosPorReal, double pesosPorLibra) {
         if (pesosPorDolar <= 0 || pesosPorEuro <= 0 || pesosPorReal <= 0) {
             throw new IllegalArgumentException("La cotizacion debe ser mayor que cero");
         }
         this.pesosPorDolar = pesosPorDolar;
         this.pesosPorEuro = pesosPorEuro;
         this.pesosPorReal = pesosPorReal;
+        this.pesosPorLibra = pesosPorLibra;
     }
 
     public double aDolares(double pesos) {
@@ -38,5 +40,11 @@ public class Conversor {
             throw new IllegalArgumentException("El monto no puede ser negativo");
         }
         return pesos / this.pesosPorReal;
+    }
+
+    public double aLibras(double pesos){
+        if (pesos<0){
+            throw new IllegalArgumentException("El monto no puede ser negativo"); 
+        } return pesos / this.pesosPorLibra;
     }
 }
